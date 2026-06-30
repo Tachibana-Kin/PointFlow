@@ -28,7 +28,7 @@ export const useRecordStore = defineStore('record', () => {
     loading.value = true
     try {
       const activeFilters = overrideFilters ?? filters.value
-      const result = await recordsApi.list(activeFilters)
+      const result = await recordsApi.list(activeFilters as Record<string, string>)
       records.value = result
       total.value = result.length
       page.value = 1

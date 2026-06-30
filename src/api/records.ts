@@ -17,7 +17,7 @@ export async function list(params?: Record<string, string>): Promise<PointRecord
   if (params?.user_id) q.user_id = `eq.${params.user_id}`
   if (params?.pair_id) q.pair_id = `eq.${params.pair_id}`
   if (params?.limit) q.limit = params.limit
-  return api.list<Record>('records', q)
+  return api.list<PointRecord>('records', q)
 }
 
 export async function create(data: { rule_id: string; remark?: string }): Promise<PointRecord> {
@@ -71,7 +71,7 @@ export async function getById(id: string): Promise<PointRecord> {
 
 export async function review(id: string, body: ReviewBody): Promise<PointRecord> {
   const uid = getUserId()
-  return api.update<Record>('records', id, {
+  return api.update<PointRecord>('records', id, {
     status: body.status,
     score: body.score ?? undefined,
     remark: body.remark ?? undefined,

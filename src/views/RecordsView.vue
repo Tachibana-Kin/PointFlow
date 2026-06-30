@@ -84,7 +84,7 @@ function goToDetail(id: string) {
       <BasePagination
         :page="currentPage"
         :total="recordStore.total"
-        page-size="20"
+        :page-size="20"
         @update:page="currentPage = $event"
       />
     </div>

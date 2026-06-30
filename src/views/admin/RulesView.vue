@@ -85,7 +85,7 @@ function openCreate() {
 function openEdit(rule: Rule) {
   editingRule.value = rule
   const punishments = rule.punishment
-    ? Object.entries(rule.punishment).map(([type, amount]) => ({ type, amount }))
+    ? Object.entries(rule.punishment).map(([type, amount]) => ({ type, amount: amount as number }))
     : []
   form.value = {
     title: rule.title,
@@ -289,8 +289,8 @@ onMounted(() => {
                   </td>
                   <td data-label="惩罚" class="punishment-cell">
                     <template v-if="rule.punishment && Object.keys(rule.punishment).length">
-                      <span class="punishment-badge" v-for="(amt, type, i) in rule.punishment" :key="i">
-                        {{ type }}: {{ amt }}
+                      <span class="punishment-badge" v-for="(item, i) in Object.entries(rule.punishment ?? {})" :key="i">
+                        {{ item[0] }}: {{ item[1] }}
                       </span>
                     </template>
                     <span v-else class="text-muted">-</span>

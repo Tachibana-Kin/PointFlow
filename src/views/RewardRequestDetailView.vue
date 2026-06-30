@@ -26,7 +26,7 @@ onMounted(async () => {
 
 async function handleReview(status: 'approved' | 'rejected') {
   const id = route.params.id as string
-  await rewardStore.reviewRequest(id, { status })
+  await rewardStore.reviewRequest(id, status)
 }
 </script>
 

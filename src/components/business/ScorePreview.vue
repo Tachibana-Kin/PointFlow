@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   score: number
-  type: 'add' | 'deduct'
+  type?: 'add' | 'deduct'
 }
 defineProps<Props>()
 </script>

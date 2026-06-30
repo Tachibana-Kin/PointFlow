@@ -75,7 +75,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
 VITE_APP_NAME=PointFlow
 ```
 
-3. 在 Supabase SQL Editor 中运行数据库 Schema（见 `docs/schema.sql`）
+3. 在 Supabase SQL Editor 中运行数据库 Schema（见 `sql/setup.sql`）
 
 ### 可用脚本
 
@@ -157,7 +157,7 @@ src/
 | reward_requests | 兑换申请 |
 | notifications | 通知 |
 
-详见 [PRD 文档](./PointFlow_PRD_完整版.md#7-数据库设计)。
+详见 [PRD 文档](./docs/PointFlow_PRD_完整版.md#7-数据库设计)。
 
 ## Sprint 规划
 

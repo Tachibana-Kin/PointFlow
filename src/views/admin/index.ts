@@ -1,0 +1,5 @@
+export { default as UsersView } from './UsersView.vue'
+export { default as PairsView } from './PairsView.vue'
+export { default as CategoriesView } from './CategoriesView.vue'
+export { default as RulesView } from './RulesView.vue'
+export { default as RewardsMgmtView } from './RewardsMgmtView.vue'

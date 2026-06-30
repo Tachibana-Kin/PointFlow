@@ -1,0 +1,18 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.vite
+node20/
+node-v20.zip
+*.ps1
+*.xlsx
+Text *.txt
+dev-server.*
+vite-*.log
+seed-data.sql

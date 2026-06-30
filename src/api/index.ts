@@ -1,0 +1,12 @@
+export { api, supabase, ApiClientError, rpcCall } from './client'
+export type { ApiClientError as ApiClientErrorType } from './client'
+
+export * as auth from './auth'
+export * as users from './users'
+export * as pairs from './pairs'
+export * as categories from './categories'
+export * as rules from './rules'
+export * as records from './records'
+export * as punishments from './punishments'
+export * as rewards from './rewards'
+export * as stats from './stats'

@@ -2,10 +2,10 @@
 import { useRouter } from 'vue-router'
 import BaseCard from '@/components/common/BaseCard.vue'
 import BaseButton from '@/components/common/BaseButton.vue'
-import type { Record } from '@/types'
+import type { PointRecord } from '@/types'
 
 interface Props {
-  record: Record
+  record: PointRecord
   showReviewActions?: boolean
 }
 const props = withDefaults(defineProps<Props>(), { showReviewActions: false })

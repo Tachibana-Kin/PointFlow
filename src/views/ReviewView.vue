@@ -10,7 +10,7 @@ const recordStore = useRecordStore()
 
 const activeTab = ref<'pending' | 'reviewed'>('pending')
 const showReviewModal = ref(false)
-const selectedRecordId = ref<string | null>(null)
+const selectedRecordId = ref<string | undefined>(undefined)
 const selectedIds = ref<Set<string>>(new Set())
 const batchMode = ref(false)
 
@@ -37,7 +37,7 @@ async function handleApprove(remark: string) {
     remark: remark || undefined,
   })
   showReviewModal.value = false
-  selectedRecordId.value = null
+  selectedRecordId.value = undefined
 }
 
 async function handleReject(remark: string) {
@@ -47,7 +47,7 @@ async function handleReject(remark: string) {
     remark: remark || undefined,
   })
   showReviewModal.value = false
-  selectedRecordId.value = null
+  selectedRecordId.value = undefined
 }
 
 function toggleSelect(id: string) {
@@ -106,7 +106,7 @@ async function batchReject() {
       </div>
 
       <div v-if="batchMode && selectedIds.size > 0" class="batch-actions">
-        <BaseButton variant="success" size="sm" @click="batchApprove">
+        <BaseButton variant="primary" size="sm" @click="batchApprove">
           批量通过 ({{ selectedIds.size }})
         </BaseButton>
         <BaseButton variant="danger" size="sm" @click="batchReject">

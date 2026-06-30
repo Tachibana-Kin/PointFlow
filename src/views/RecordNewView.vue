@@ -124,8 +124,8 @@ async function submit() {
 
       <div v-if="step === 3" class="step-content">
         <ScorePreview
-          :score="selectedRule?.score"
-          :type="selectedRule?.type"
+          :score="selectedRule?.score ?? 0"
+          :type="selectedRule?.type ?? 'add'"
         />
         <PunishmentPreview :punishment="selectedRule?.punishment" />
         <BaseInput

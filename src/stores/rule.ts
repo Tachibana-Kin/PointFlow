@@ -19,7 +19,7 @@ export const useRuleStore = defineStore('rule', () => {
     loading.value = true
     try {
       const activeFilters = overrideFilters ?? filters.value
-      rules.value = await rulesApi.list(activeFilters)
+      rules.value = await rulesApi.list(activeFilters as Record<string, string>)
     } catch (e) {
       console.error('Fetch rules failed', e)
       throw e

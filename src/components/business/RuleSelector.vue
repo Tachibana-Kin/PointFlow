@@ -27,8 +27,8 @@ const emit = defineEmits<{ select: [ruleId: string] }>()
         </span>
       </div>
       <div v-if="rule.punishment && Object.keys(rule.punishment).length" class="rule-punish">
-        <span v-for="(amt, key, idx) in rule.punishment" :key="key">
-          {{ idx > 0 ? ' / ' : '' }}{{ key }} {{ amt }}
+        <span v-for="(item, idx) in Object.entries(rule.punishment)" :key="idx">
+          {{ idx > 0 ? ' / ' : '' }}{{ item[0] }} {{ item[1] }}
         </span>
       </div>
     </button>

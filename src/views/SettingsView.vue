@@ -65,7 +65,7 @@ async function handleLogout() {
           </div>
           <div class="info-row">
             <span class="info-label">姓名</span>
-            <span class="info-value">{{ auth.user?.user_metadata?.name ?? auth.user?.email ?? '-' }}</span>
+            <span class="info-value">{{ auth.user?.name ?? auth.user?.email ?? '-' }}</span>
           </div>
           <div class="info-row">
             <span class="info-label">角色</span>

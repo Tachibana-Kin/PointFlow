@@ -71,8 +71,8 @@ function emitBatch(action: string) {
             </td>
             <td class="cell-punish">
               <span v-if="rule.punishment && Object.keys(rule.punishment).length">
-                <span v-for="(amt, key, idx) in rule.punishment" :key="key">
-                  {{ idx > 0 ? ' / ' : '' }}{{ key }} {{ amt }}
+                <span v-for="(item, idx) in Object.entries(rule.punishment)" :key="idx">
+                  {{ idx > 0 ? ' / ' : '' }}{{ item[0] }} {{ item[1] }}
                 </span>
               </span>
               <span v-else class="muted">—</span>
@@ -108,8 +108,8 @@ function emitBatch(action: string) {
         </div>
         <div class="mobile-body">
           <div v-if="rule.punishment && Object.keys(rule.punishment).length" class="mobile-punish">
-            <span v-for="(amt, key, idx) in rule.punishment" :key="key">
-              {{ idx > 0 ? ' / ' : '' }}{{ key }} {{ amt }}
+            <span v-for="(item, idx) in Object.entries(rule.punishment)" :key="idx">
+              {{ idx > 0 ? ' / ' : '' }}{{ item[0] }} {{ item[1] }}
             </span>
           </div>
           <div class="mobile-actions">

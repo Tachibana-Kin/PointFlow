@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Record, RecordFilters, ReviewBody } from '@/types'
+import type { PointRecord, RecordFilters, ReviewBody } from '@/types'
 import * as recordsApi from '@/api/records'
 
 export const useRecordStore = defineStore('record', () => {
-  const records = ref<Record[]>([])
-  const currentRecord = ref<Record | null>(null)
+  const records = ref<PointRecord[]>([])
+  const currentRecord = ref<PointRecord | null>(null)
   const loading = ref(false)
   const filters = ref<RecordFilters>({
     page: 1,

@@ -1,5 +1,5 @@
 import { api, rpcCall } from './client'
-import type { Record, ReviewBody } from '@/types'
+import type { PointRecord, ReviewBody } from '@/types'
 
 function getUserId(): string | null {
   try {
@@ -8,7 +8,7 @@ function getUserId(): string | null {
   } catch { return null }
 }
 
-export async function list(params?: Record<string, string>): Promise<Record[]> {
+export async function list(params?: Record<string, string>): Promise<PointRecord[]> {
   const q: Record<string, string> = {
     select: '*,rule:rule_id(title,type,category:category_id(name)),user:user_id(name),punishment_logs:punishment_logs(*)',
     order: 'created_at.desc',
@@ -20,7 +20,7 @@ export async function list(params?: Record<string, string>): Promise<Record[]> {
   return api.list<Record>('records', q)
 }
 
-export async function create(data: { rule_id: string; remark?: string }): Promise<Record> {
+export async function create(data: { rule_id: string; remark?: string }): Promise<PointRecord> {
   const uid = getUserId()
   // Fetch rule to get score, pair_id, and punishment
   const rule = await api.get<any>('rules', data.rule_id)
@@ -34,7 +34,7 @@ export async function create(data: { rule_id: string; remark?: string }): Promis
     payload.punishment = rule.punishment
   }
   if (uid) payload.user_id = uid
-  const created = await api.create<Record>('records', payload)
+  const created = await api.create<PointRecord>('records', payload)
 
   // Try to create punishment_logs entries (best-effort, don't fail the request)
   try {
@@ -54,7 +54,7 @@ export async function create(data: { rule_id: string; remark?: string }): Promis
   return created
 }
 
-export async function getById(id: string): Promise<Record> {
+export async function getById(id: string): Promise<PointRecord> {
   const record = await api.get<any>('records', id)
   // Also fetch punishment_logs for this record
   try {
@@ -69,7 +69,7 @@ export async function getById(id: string): Promise<Record> {
   return record
 }
 
-export async function review(id: string, body: ReviewBody): Promise<Record> {
+export async function review(id: string, body: ReviewBody): Promise<PointRecord> {
   const uid = getUserId()
   return api.update<Record>('records', id, {
     status: body.status,

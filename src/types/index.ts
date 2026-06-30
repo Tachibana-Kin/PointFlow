@@ -44,7 +44,7 @@ export interface Rule {
 
 export type RecordStatus = 'pending' | 'approved' | 'rejected' | 'cancelled'
 
-export interface Record {
+export interface PointRecord {
   id: string
   pair_id: string
   user_id: string
